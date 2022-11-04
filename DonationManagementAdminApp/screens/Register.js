@@ -1,12 +1,13 @@
 import React from "react";
 import { Image, TouchableOpacity, ImageBackground, StyleSheet, View } from "react-native";
 
-const localimage = require("../assets/login.png");
+const localimage = require("../assets/register.png");
 
-const Login =  (props) => {
+
+const Register =  (props) => {
 
   const onPress = () => {
-    props.navigation.navigate('Register');
+    props.navigation.navigate('Dashboard');
   };
 
   return(
@@ -19,7 +20,6 @@ const Login =  (props) => {
    
  
   };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   logo: {
     width: 330,
     height: 55,
-    marginTop:350
+    marginTop:500
   },
 });
 
-export default Login;
+export default Register;
