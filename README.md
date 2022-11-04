@@ -1,6 +1,6 @@
 # Donation Management App-SEJ001-CodingClan
  
-# Project Name - Ticketing System
+# Project Name - Donation Management System
 # Group NO : SE3070_WD_30
 # Batch - Y3.S1.WD.SE.01.01
 ### Group Leader - IT20636524 - Miss.P.P.S.Ariyasena (IT20636524)
