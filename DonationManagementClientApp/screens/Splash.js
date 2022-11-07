@@ -12,7 +12,7 @@ const Splash =  (props) => {
   };
 
   return(
-    <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
+    <ImageBackground source={localimage} resizeMode='stretch' style={styles.container}>
     <TouchableOpacity onPress={onPress}>
       <Image source={require("../assets/get.png")} style={styles.logo}></Image>
     </TouchableOpacity>

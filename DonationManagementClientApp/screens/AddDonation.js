@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+// import SweetAlert from 'react-native-sweet-alert';
 
-export default function AddDonation() {
+export default function AddDonation(props) {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -13,16 +14,14 @@ export default function AddDonation() {
     setAmount(enteredText);
   }
   function paymentMethodHandler(enteredText){
-    setPaymentMethod(enteredText);
+    props.navigation.navigate('AddCard');
   }
   function noteHandler(enteredText){
     setNote(enteredText);
   }
 
   function addDonationHandler(){
-    console.log(name);
-    console.log(amount);
-    console.log(note);
+    
   }
 
 
@@ -41,7 +40,7 @@ export default function AddDonation() {
       </View>
       <View style={styles.inputContainer1}>
         <Text style={styles.labelText2}>Payment Method</Text>
-        <Button title='Add Card' />
+        <Button title='Add Card' onPress={paymentMethodHandler} />
       </View>
       <View style={styles.inputContainer2}>
         <Text style={styles.labelText}>Note(Optional)</Text>
@@ -79,7 +78,8 @@ const styles = StyleSheet.create({
     width: '75%',
     padding: 5,
     margin: 5,
-    backgroundColor:'#FCFDFF'
+    backgroundColor:'#FCFDFF',
+    fontSize:15
   },
   textInput2: {
     borderWidth: 1,
@@ -88,17 +88,21 @@ const styles = StyleSheet.create({
     height:'50%',
     padding: 5,
     margin: 5,
-    backgroundColor:'#FCFDFF'
+    backgroundColor:'#FCFDFF',
+    fontSize:15
   },
   headerText:{
-    color:'#06134B'
+    color:'#06134B',
+    fontSize:25
   },
   labelText:{
-    color:'#FFFFFF'
+    color:'#FFFFFF',
+    fontSize:15
   },
   labelText2:{
     color:'#FFFFFF',
-    marginBottom:10
+    marginBottom:10,
+    fontSize:15
   }
 
 });

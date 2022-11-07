@@ -11,7 +11,7 @@ const Register =  (props) => {
   };
 
   return(
-    <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
+    <ImageBackground source={localimage} resizeMode='stretch' style={styles.container}>
     <TouchableOpacity onPress={onPress}>
       <Image source={require("../assets/regbtn.png")} style={styles.logo}></Image>
     </TouchableOpacity>
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   logo: {
-    width: 330,
+    width: 350,
     height: 55,
-    marginTop:500
+    marginTop:550
   },
 });
 

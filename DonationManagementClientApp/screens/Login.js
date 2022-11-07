@@ -10,7 +10,7 @@ const Login =  (props) => {
   };
 
   return(
-    <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
+    <ImageBackground source={localimage} resizeMode='stretch' style={styles.container}>
     <TouchableOpacity onPress={onPress}>
       <Image source={require("../assets/regbtn.png")} style={styles.logo}></Image>
     </TouchableOpacity>
@@ -33,9 +33,10 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   logo: {
-    width: 330,
+    width: 360,
     height: 55,
-    marginTop:350
+    marginTop:340,
+    marginLeft:5
   },
 });
 
