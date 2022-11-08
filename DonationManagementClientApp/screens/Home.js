@@ -11,12 +11,16 @@ const Home = (props) => {
   const onPress2 = () => {
     props.navigation.navigate('Projects');
   };
+  const onPress3 = () => {
+    props.navigation.navigate('MyProjects');
+  };
 
   return(
   
     <ImageBackground source={localimage} resizeMode='stretch' style={styles.container}>
     <Button title="add Donation" color="#06134B" onPress={onPress}/>
     <Button title="Projects" color="#06134B" onPress={onPress2}/>
+    <Button title="MyProjects" color="#06134B" onPress={onPress3}/>
     </ImageBackground>
  
 );
