@@ -13,11 +13,15 @@ const PaymentDashboard = () => {
     <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
       {/* <TouchableOpacity onPress={onPressorg}> */}
       <TouchableOpacity>
-      <Image source={require("../assets/orgbtn.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/orgbtn.png")} style={styles.org}></Image>
     </TouchableOpacity>
     {/* <TouchableOpacity  onPress={onPressmgr}> */}
     <TouchableOpacity >
-      <Image source={require("../assets/evmgrbtn.png")} style={styles.event}></Image>
+      <Image source={require("../assets/evmgrbtn.png")} style={styles.mgr}></Image>
+    </TouchableOpacity>
+    <Image source={require("../assets/dashanalytic.png")} style={styles.dash}></Image>
+    <TouchableOpacity >
+      <Image source={require("../assets/addpaybtn.png")} style={styles.add}></Image>
     </TouchableOpacity>
     </ImageBackground>
   );
@@ -30,10 +34,35 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor:"#fff"
   },
-  image: {
-    flex: 1,
-    justifyContent: "center"
+  org:{
+    position: "absolute",
+    width: 183,
+    height: 138,
+    left: -185,
+    bottom: -80 
   },
+  mgr:{
+    position: "absolute",
+    width: 183,
+    height: 138,
+    right: -185,
+    bottom: -80
+  },
+  dash:{   
+    width: 365,
+    height: 123,
+    left: 0,   
+    background: "#FCFDFF",
+    borderRadius: 15,
+    bottom: -90
+  },
+  add:{   
+    left: 100,   
+    background: "#FCFDFF",
+    top:240
+  },
+ 
+
  
 });
 
