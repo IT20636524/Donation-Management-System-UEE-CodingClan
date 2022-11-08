@@ -16,9 +16,7 @@ const Login =  (props) => {
     </TouchableOpacity>
   </ImageBackground>
   );
-   
- 
-  };
+};
 
 
 const styles = StyleSheet.create({
