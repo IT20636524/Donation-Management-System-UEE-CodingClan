@@ -7,6 +7,11 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Splash from './screens/Splash';
 import AddCard from './screens/AddCard';
+import Projects from './screens/Projects';
+import MyProjects from './screens/MyProjects';
+import ViewProject from './screens/ViewProject';
+import AddProject from './screens/AddProject';
+import EditProject from './screens/EditProject';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +31,11 @@ export default function App() {
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="AddDonation" component={AddDonation} />
                 <Stack.Screen name="AddCard" component={AddCard} />
+                <Stack.Screen name="Projects" component={Projects} />
+                <Stack.Screen name="MyProjects" component={MyProjects} />
+                <Stack.Screen name="ViewProject" component={ViewProject} />
+                <Stack.Screen name="AddProject" component={AddProject} />
+                <Stack.Screen name="EditProject" component={EditProject} />
             </Stack.Navigator>
         </NavigationContainer>
   );
