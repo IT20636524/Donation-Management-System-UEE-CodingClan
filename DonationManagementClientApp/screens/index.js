@@ -4,6 +4,7 @@ import Register from "./Register";
 import Login from "./Login";
 import AddDonation from "./AddDonation";
 import AddCard from "./AddCard";
+import Profile from "./Profile";
 
 export {
     Home,
@@ -11,5 +12,6 @@ export {
     Register,
     Login,
     AddDonation,
-    AddCard
+    AddCard,
+    Profile
 };
