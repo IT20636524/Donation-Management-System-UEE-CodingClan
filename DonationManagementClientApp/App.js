@@ -10,7 +10,7 @@ import Splash from './screens/Splash';
 import AddCard from './screens/AddCard';
 import MainContainer from './navigation/MainContainer';
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
 export default function App() {
 
@@ -29,11 +29,9 @@ export default function App() {
     //             <Stack.Screen name="AddDonation" component={AddDonation} />
     //             <Stack.Screen name="AddCard" component={AddCard} />
     //             <Stack.Screen name="Profile" component={Profile} />
-    //             {/* <Stack.Screen name="Main" component={MainContainer} /> */}
     //         </Stack.Navigator>
     //     </NavigationContainer>
     <MainContainer/>
-   
   );
 }
 

@@ -8,7 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import Settings from './screens/Settings'
-import Donations from './screens/Donations'
+import Donations from '../screens/Donations'
 
 //Screen names
 const homeName = 'Home';

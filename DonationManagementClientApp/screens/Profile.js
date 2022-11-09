@@ -1,15 +1,20 @@
 import * as React from 'react'
 import { useState } from 'react';
 import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import EditProfile from '../modal/EditProfile';
 
 export default function Profile({navigation}) {
     const localimage = require('../assets/bg-img.png');
+    const [visible, setVisible] = React.useState(false);
     return (
 
         <ImageBackground source={localimage} resizeMode='stretch' style={styles.appContainer}>
             <View style={styles.headerContainer}>
                 <Text style={styles.headerText}>Profile</Text>
-                <TouchableOpacity>
+                <EditProfile visible={visible}>
+                    
+                </EditProfile>
+                <TouchableOpacity onPress={() => setVisible(false)}>
                     <Image source={require('../assets/Vector.png')} style={{height:20,width:20,marginLeft:20,marginTop:10}} />
                 </TouchableOpacity>
             </View>

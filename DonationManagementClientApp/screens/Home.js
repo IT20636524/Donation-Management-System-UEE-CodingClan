@@ -5,11 +5,10 @@ const localimage = require('../assets/bg-img.png');
 
 const Home = (props) => {
 
+  //error
   const onPress = () => {
-    props.navigation.navigate('AddDonation');
+    props.navigation.navigate('MyDonations');
   };
-
-
 
   return (
 
@@ -21,7 +20,7 @@ const Home = (props) => {
           <Image source={require('../assets/add-donation.png')} style={styles.img} />
           <Text style={styles.boxText2}>Be a Good Person</Text>
         </View>
-        <Button title="start Now" />
+        <Button title="start Now" onPress={onPress}/>
       </View>
       <View style={styles.boxContainer}>
         <View style={styles.box}>
