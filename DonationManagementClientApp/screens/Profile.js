@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import EditProfile from '../modal/EditProfile';
 
-export default function Profile({navigation}) {
+export default function Profile({ navigation }) {
     const localimage = require('../assets/bg-img.png');
     const [visible, setVisible] = React.useState(false);
     return (
@@ -12,10 +12,34 @@ export default function Profile({navigation}) {
             <View style={styles.headerContainer}>
                 <Text style={styles.headerText}>Profile</Text>
                 <EditProfile visible={visible}>
-                    
+                    <View>
+                        <View style={styles.header}>
+                            <TouchableOpacity onPress={() => setVisible(false)}>
+                                <Image source={require('../assets/cross.png')} style={{ width: 30, height: 30 }} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ alignItems: 'center' }}>
+                            <Image source={require('../assets/user.jpg')} style={{ width: 150, height: 150, borderRadius: 150 / 2 }} />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.labelText}>Name</Text>
+                            <TextInput style={styles.textInput} placeholder='Enter name' />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.labelText}>Email</Text>
+                            <TextInput style={styles.textInput} placeholder='Enter email' />
+                        </View>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.labelText}>Contact</Text>
+                            <TextInput style={styles.textInput} placeholder='Enter contact' />
+                        </View>
+                        <View>
+                            <Button title='Edit' />
+                        </View>
+                    </View>
                 </EditProfile>
-                <TouchableOpacity onPress={() => setVisible(false)}>
-                    <Image source={require('../assets/Vector.png')} style={{height:20,width:20,marginLeft:20,marginTop:10}} />
+                <TouchableOpacity onPress={() => setVisible(true)} >
+                    <Image source={require('../assets/Vector.png')} style={{ height: 20, width: 20, marginLeft: 20, marginTop: 10 }} />
                 </TouchableOpacity>
             </View>
             <Image source={require('../assets/user.jpg')} style={{ width: 150, height: 150, borderRadius: 150 / 2 }} />
@@ -71,8 +95,8 @@ const styles = StyleSheet.create({
         marginTop: 0,
         marginLeft: 0
     },
-    headerContainer:{
-        flexDirection:'row',
+    headerContainer: {
+        flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 130
     },
@@ -120,6 +144,19 @@ const styles = StyleSheet.create({
     iconStyle: {
         fontSize: 20,
         color: 'black',
+    },
+    labelText: {
+        color: '#FFFFFF',
+        fontSize: 15
+    },
+    textInput: {
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        width: '75%',
+        padding: 5,
+        margin: 5,
+        backgroundColor: '#FCFDFF',
+        fontSize: 15
     },
 
 });

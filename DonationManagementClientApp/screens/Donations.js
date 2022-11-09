@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Button, View, StyleSheet, Image, TouchableOpacity, Text, ImageBackground, ScrollView, TextInput } from 'react-native'
 import AddDonation from '../modal/AddDonation';
 import DonationSuccess from '../modal/DonationSuccess';
+import AddCard from '../modal/AddCard'
 
 export default function Donations() {
     const [visible, setVisible] = React.useState(false);
+    const [visibleSuccess, setVisibleSuccess] = React.useState(false);
     const localimage = require('../assets/bg-img.png');
     const [name, setName] = useState('');
     const [amount, setAmount] = useState('');
@@ -93,23 +95,36 @@ export default function Donations() {
                             <Text style={styles.labelText2}>Payment Method</Text>
 
                             {/* Add Card Modal Box */}
-                            
-                            <TouchableOpacity onPress={paymentMethodHandler} >
-                            <View style={styles.boxContainer}>
-                            <View style={styles.box}>
-                                <Image source={require('../assets/Plus.png')} style={styles.img2} />
-                                <Text style={styles.boxText3}>Add Card</Text>
-                            </View>
-                        </View>
+                            <AddCard></AddCard>
+                            <TouchableOpacity  >
+                                <View style={styles.boxContainer}>
+                                    <View style={styles.box}>
+                                        <Image source={require('../assets/Plus.png')} style={styles.img2} />
+                                        <Text style={styles.boxText3}>Add Card</Text>
+                                    </View>
+                                </View>
                             </TouchableOpacity>
                             {/* <Button title='Add Card' onPress={paymentMethodHandler} /> */}
                         </View>
-                        <View style={styles.inputContainer2}>
+                        <View style={styles.inputContainer}>
                             <Text style={styles.labelText}>Note(Optional)</Text>
                             <TextInput style={styles.textInput2} placeholder='Enter note' onChangeText={noteHandler} />
                         </View>
-                        <View style={{marginTop:50}}>
-                            <Button title='Donate' color="#06134B" onPress={addDonationHandler} />
+                        <View style={{ marginTop: 50 }}>
+                            <DonationSuccess visibleSuccess={visible}>
+                                <View style={{ alignItems: 'center' }}>
+                                    <View style={styles.header}>
+                                        <TouchableOpacity onPress={() => setVisibleSuccess(false)}>
+                                            <Image source={require('../assets/cross.png')} style={{ width: 30, height: 30 }} />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                <View style={{ alignItems: 'center' }}>
+                                    <Image source={require('../assets/success.png')} style={{ width: 150, height: 150 }} />
+                                </View>
+                                <Text style={{ marginVertical: 30, fontSize: 20, textAlign: 'center' }}>Donation successful</Text>
+                            </DonationSuccess>
+                            <Button title='Donate' color="#06134B" onPress={() => setVisibleSuccess(true)}  />
                         </View>
                     </View>
                 </AddDonation>
@@ -230,27 +245,31 @@ const styles = StyleSheet.create({
         width: '75%',
         padding: 5,
         margin: 5,
-        backgroundColor:'#FCFDFF',
-        fontSize:15
-      },
-      textInput2: {
+        backgroundColor: '#FCFDFF',
+        fontSize: 15
+    },
+    textInput2: {
         borderWidth: 1,
         borderColor: '#cccccc',
         width: '70%',
-        height:'50%',
+        height: '150%',
         padding: 5,
         margin: 5,
-        backgroundColor:'#FCFDFF',
-        fontSize:15,
-      },
-      inputContainer1: {
-        marginTop:10,
+        backgroundColor: '#FCFDFF',
+        fontSize: 15,
+    },
+    inputContainer1: {
+        marginTop: 10,
         flex: 1,
-        flexDirection:'row'
-      },
-      inputContainer2: {
+        flexDirection: 'row'
+    },
+    inputContainer2: {
         flexDirection: 'row',
         justifyContent: 'space-between'
-      },
+    },
+    inputContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
 
 })

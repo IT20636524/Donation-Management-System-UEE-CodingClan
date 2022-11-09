@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { createStackNavigator } from "@react-navigation/stack";
+// import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 import { AddDonation, Home, Profile} from "./screens/";
 import Register from './screens/Register';

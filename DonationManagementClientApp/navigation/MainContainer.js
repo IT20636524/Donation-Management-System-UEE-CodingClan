@@ -1,5 +1,5 @@
 import * as React from 'react'
-
+import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -9,6 +9,7 @@ import Home from '../screens/Home'
 import Profile from '../screens/Profile'
 import Settings from './screens/Settings'
 import Donations from '../screens/Donations'
+// import MyDonations from '../screens/MyDonations'
 
 //Screen names
 const homeName = 'Home';
@@ -17,9 +18,11 @@ const donationsName = 'Donations';
 const settingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function MainContainer(){
     return(
+
         <NavigationContainer>
             <Tab.Navigator
             initialRouteName={homeName}
@@ -56,6 +59,8 @@ export default function MainContainer(){
             <Tab.Screen name={settingsName} component={Settings}/>
 
             </Tab.Navigator>
+
+            
         </NavigationContainer>
     )
 }

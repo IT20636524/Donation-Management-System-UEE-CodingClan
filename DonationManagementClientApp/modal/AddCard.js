@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Button, Modal } from 'react-native'
 
-export default function EditProfile({visible,children}) {
+export default function AddCard({visible,children}) {
     const [showModal,setShowModal]=React.useState(visible);
     React.useEffect(() => {
         toggleModal();

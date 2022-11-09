@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Button, Modal } from 'react-native'
 
-export default function EditProfile({visible,children}) {
+export default function AddDonation({visible,children}) {
     const [showModal,setShowModal]=React.useState(visible);
     React.useEffect(() => {
         toggleModal();
@@ -23,17 +23,17 @@ export default function EditProfile({visible,children}) {
 }
 const styles = StyleSheet.create({
 modalBackGround:{
-    flex:1,
     backgroundColor:'rgba(0,0,0,0.5)',
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    flex:1
 },
 modalContainer:{
     width:'80%',
-    backgroundColor: '#3A74CB',
+    backgroundColor:'#3A74CB',
     paddingHorizontal:20,
     paddingVertical:30,
     borderRadius:20,
-    elevation:20
+    elevation:100
 }
 });

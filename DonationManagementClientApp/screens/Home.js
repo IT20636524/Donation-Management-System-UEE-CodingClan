@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, Button, Text } from "react-native";
-
 const localimage = require('../assets/bg-img.png');
 
 const Home = (props) => {
