@@ -6,6 +6,8 @@ import PaymentDashboard from "./PaymentDashboard";
 import EventDashboard from "./EventDashboard";
 import CompleteEvent from "./CompleteEvent";
 import Event from "./Event";
+import OrgPayments from "./OrgPayments";
+import EventManagerPayments from "./EventManagerPayments";
 
 export {
     Splash,
@@ -15,5 +17,7 @@ export {
     PaymentDashboard,
     EventDashboard,
     CompleteEvent,
-    Event
+    Event,
+    OrgPayments,
+    EventManagerPayments,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 import { Dashboard, Login, PaymentDashboard, Register, Splash,EventDashboard, CompleteEvent, Event} from "./screens/";
+import { Dashboard, EventManagerPayments, Login, OrgPayments, PaymentDashboard, Register, Splash } from "./screens/";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,8 @@ const App = () => {
                 <Stack.Screen name="EventDashboard" component={EventDashboard} />
                 <Stack.Screen name="CompleteEvent" component={CompleteEvent} />
                 <Stack.Screen name="Event" component={Event} />
+                <Stack.Screen name="OrgPayments" component={OrgPayments} />
+                <Stack.Screen name="EventManagerPayments" component={EventManagerPayments} />
             </Stack.Navigator>
         </NavigationContainer>
     );

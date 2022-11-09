@@ -29,11 +29,11 @@ const PaymentDashboard = (props) => {
 
 
     const onPressorg = () => {
-        props.navigation.navigate('PaymentDashboard');
+        props.navigation.navigate('OrgPayments');
     };
 
     const onPressmgr = () => {
-        props.navigation.navigate('PaymentDashboard');
+        props.navigation.navigate('EventManagerPayments');
     };
 
     return (
