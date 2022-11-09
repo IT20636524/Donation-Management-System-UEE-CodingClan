@@ -1,8 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import { Dashboard, Login, PaymentDashboard, Register, Splash,EventDashboard, CompleteEvent, Event} from "./screens/";
-import { Dashboard, EventManagerPayments, Login, OrgPayments, PaymentDashboard, Register, Splash } from "./screens/";
+import { Dashboard, Login, PaymentDashboard, Register, Splash,EventDashboard, CompleteEvent, Event, EventManagerPayments, OrgPayments} from "./screens/";
 
 const Stack = createStackNavigator();
 
