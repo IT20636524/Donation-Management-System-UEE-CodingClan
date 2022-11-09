@@ -1,13 +1,14 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, View, StyleSheet, Image, TouchableOpacity, Text, ImageBackground, ScrollView, TextInput } from 'react-native'
 import AddDonation from '../modal/AddDonation';
 import DonationSuccess from '../modal/DonationSuccess';
 import AddCard from '../modal/AddCard'
+import axios from 'axios'
 
 export default function Donations() {
     const [visible, setVisible] = React.useState(false);
     const [visibleSuccess, setVisibleSuccess] = React.useState(false);
+    const [visibileCard, setVisibileCard] = React.useState(false);
     const localimage = require('../assets/bg-img.png');
     const [name, setName] = useState('');
     const [amount, setAmount] = useState('');
@@ -26,7 +27,25 @@ export default function Donations() {
         setNote(enteredText);
     }
 
-    function addDonationHandler() {
+    const donationDetails = {
+        name,
+        amount,
+        note
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/donations/add', donationDetails).then(function (res) {
+            console.log(res);
+            setVisibleSuccess(true);
+        }).catch(function (err) {
+            setVisibleSuccess(true);
+            console.log(err);
+
+        })
+    }
+
+    function addCard(){
 
     }
     return (
@@ -95,8 +114,44 @@ export default function Donations() {
                             <Text style={styles.labelText2}>Payment Method</Text>
 
                             {/* Add Card Modal Box */}
-                            <AddCard></AddCard>
-                            <TouchableOpacity  >
+                            <AddCard visible={visibileCard}>
+                                <View>
+                                    <View style={styles.header}>
+                                        <TouchableOpacity onPress={() => setVisibileCard(false)}>
+                                            <Image source={require('../assets/cross.png')} style={{ width: 30, height: 30 }} />
+                                        </TouchableOpacity>
+                                    </View>
+                                    <Text style={styles.cardHeaderText}>Payment Information</Text>
+                                    <View style={styles.cardInputContainer1}>
+                                        <Text style={styles.cardLabelText}>Credit Card</Text>
+                                        <View style={styles.cardInputContainer}>
+                                            <TextInput style={styles.cardTextInput} placeholder='Enter credit card number' />
+                                            <Image source={require('../assets/credit-card.png')} style={styles.cardImg}/>
+                                            <Image source={require('../assets/mastercard.png')} style={styles.cardImg} />
+                                        </View>
+                                    </View>
+                                    <View style={styles.cardInputContainer}>
+                                        <Text style={styles.cardLabelText}>Expiration Date</Text>
+                                        <Text style={styles.cardLabelText}>CVV</Text>
+                                    </View>
+                                    <View style={styles.cardInputContainer}>
+                                        <TextInput style={styles.cardTextInput3} placeholder='DD' />
+                                        <Text style={styles.cardLabelText2}>/</Text>
+                                        <TextInput style={styles.cardTextInput3} placeholder='YY' />
+                                        <TextInput style={styles.cardTextInput2} placeholder='CVV' />
+                                    </View>
+                                    <View style={styles.cardInputContainer1}>
+                                        <Text style={styles.cardLabelText}>Name on the card</Text>
+                                        <View style={styles.cardInputContainer}>
+                                            <TextInput style={styles.cardTextInput4} placeholder='Enter Name on the card' />
+                                        </View>
+                                    </View>
+                                    <View style={styles.cardBtncontainer}>
+                                        <Button title='Save'/>
+                                    </View>
+                                </View>
+                            </AddCard>
+                            <TouchableOpacity onPress={() => setVisibileCard(true)}>
                                 <View style={styles.boxContainer}>
                                     <View style={styles.box}>
                                         <Image source={require('../assets/Plus.png')} style={styles.img2} />
@@ -111,7 +166,8 @@ export default function Donations() {
                             <TextInput style={styles.textInput2} placeholder='Enter note' onChangeText={noteHandler} />
                         </View>
                         <View style={{ marginTop: 50 }}>
-                            <DonationSuccess visibleSuccess={visible}>
+                        {/* Success message */}
+                            <DonationSuccess visible={visibleSuccess}>
                                 <View style={{ alignItems: 'center' }}>
                                     <View style={styles.header}>
                                         <TouchableOpacity onPress={() => setVisibleSuccess(false)}>
@@ -124,7 +180,7 @@ export default function Donations() {
                                 </View>
                                 <Text style={{ marginVertical: 30, fontSize: 20, textAlign: 'center' }}>Donation successful</Text>
                             </DonationSuccess>
-                            <Button title='Donate' color="#06134B" onPress={() => setVisibleSuccess(true)}  />
+                            <Button title='Donate' color="#06134B" onPress={handleSubmit} />
                         </View>
                     </View>
                 </AddDonation>
@@ -271,5 +327,73 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
+    appContainerCard:{
+        flex: 1,
+        padding: 50,
+    },
+    cardHeaderText:{
+        color: '#06134B',
+        fontSize: 25
+    },
+    cardInputContainer1:{
+        marginTop: 10,
+    },
+    cardImg:{
+        marginLeft:5
+    },
+    cardLabelText2:{
+        color: '#FFFFFF',
+        marginBottom: 10,
+        fontSize:30
+    },
+    cardTextInput3:{
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        width: '15%',
+        padding: 6,
+        margin: 5,
+        backgroundColor: '#FCFDFF',
+        fontSize:15
+    },
+    cardInputContainer:{
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    cardLabelText:{
+        color: '#FFFFFF',
+        fontSize:15
+    },
+    cardTextInput2:{
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        width: '30%',
+        padding: 6,
+        margin: 5,
+        backgroundColor: '#FCFDFF',
+        fontSize:15
+    },
+    cardTextInput:{
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        width: '55%',
+        padding: 6,
+        margin: 5,
+        backgroundColor: '#FCFDFF',
+        fontSize:15
+    },
+    cardTextInput4:{
+        borderWidth: 1,
+        borderColor: '#cccccc',
+        width: '100%',
+        padding: 6,
+        margin: 5,
+        backgroundColor: '#FCFDFF',
+        fontSize:15
+    },
+    cardBtncontainer:{
+        width:'50%',
+        alignItems:'center'
+    }
+
 
 })
