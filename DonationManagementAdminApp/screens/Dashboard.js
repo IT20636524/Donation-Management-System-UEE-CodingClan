@@ -9,12 +9,16 @@ const Dashboard = (props) => {
     props.navigation.navigate('PaymentDashboard');    
   };
 
+  const onPressevent = () => {
+    props.navigation.navigate('EventDashboard');    
+  };
+
   return(
     <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
       <TouchableOpacity onPress={onPresspay}>
       <Image source={require("../assets/paymentbtn.png")} style={styles.pay}></Image>
     </TouchableOpacity>
-    <TouchableOpacity >
+    <TouchableOpacity onPress={onPressevent}>
       <Image source={require("../assets/eventbtn.png")} style={styles.event}></Image>
     </TouchableOpacity>
     </ImageBackground>
