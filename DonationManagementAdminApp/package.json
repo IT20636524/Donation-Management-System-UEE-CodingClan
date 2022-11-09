@@ -20,6 +20,7 @@
     "react-native": "0.69.6",
     "react-native-form-inputs": "^0.0.5",
     "react-native-inputs": "^0.2.1",
+    "react-native-paper": "^4.12.5",
     "react-native-screens": "^3.18.2",
     "react-native-web": "~0.18.7"
   },
