@@ -46,6 +46,7 @@ const PaymentDashboard = (props) => {
                 <Image source={require("../assets/evmgrbtn.png")} style={styles.mgr}></Image>
             </TouchableOpacity>
             <Image source={require("../assets/dashanalytic.png")} style={styles.dash}></Image>
+            <Image source={require("../assets/paypic.png")} style={styles.dashx}></Image>
 
 
             <View style={styles.centeredView}>
@@ -62,6 +63,10 @@ const PaymentDashboard = (props) => {
                         <View style={styles.modalView}>
                             <Text style={{color:"#000000", fontSize: 30, textAlign:"center",bottom:20}}>Add Payment</Text>
                             <View>
+                            <View style={styles.inputContainer}>
+                                    <Text style={styles.labelText}>Pay For</Text>
+                                    <TextInput style={styles.textInput} placeholder='Enter Organization' />
+                                </View>
                                 <View style={styles.inputContainer}>
                                     <Text style={styles.labelText}>Organization</Text>
                                     <TextInput style={styles.textInput} placeholder='Enter Organization' />
@@ -76,24 +81,9 @@ const PaymentDashboard = (props) => {
                                 </View>
                                 <View style={styles.inputContainer}>
                                     <Text style={{top:5,fontSize: 18}}>Date</Text>
-                                    
-                                    {/* <TouchableOpacity onPress={() => showMode('date')}> */}
-                                    <Image source={require("../assets/datepickpng.png")}></Image>
-                                  
-                                  {/* </TouchableOpacity> */}
-                                   
-
-                                    {show && (
-                                        <DateTimeInput 
-                                            testID = 'dateTimePicker'
-                                            value = {date}
-                                            mode={mode}
-                                            is24Hour={true}
-                                            display='default'
-                                            onChange={onChange}
-                                        
-                                       />
-                                    )}                                
+                                    <TextInput  style={styles.textInput} placeholder='Select date'> 
+                                    <Image style={{width:20,height:20,left:50}} source={require("../assets/datepickpng.png")}></Image>
+                                    </TextInput>                           
                                 </View>
                                 <View style={styles.inputContainer}>
                                     <Text style={styles.labelText}>Estimated Details</Text>
@@ -160,10 +150,18 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         bottom: -380
     },
+    dashx: {
+        width: 365,
+        height: 123,
+        left: 0,
+        background: "#FCFDFF",
+        borderRadius: 15,
+        bottom: -400
+    },
     add: {
         left: 100,
         background: "#FCFDFF",
-        top: 240
+        top: 170
     },
     centeredView: {
         flex: 1,
@@ -176,7 +174,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#3A74CB",
         borderRadius: 20,
         padding: 35,
-        height:440,
+        height:520,
         shadowColor: "3000000",
         shadowOffset: {
             width: 0,
@@ -214,7 +212,7 @@ const styles = StyleSheet.create({
     textInput: {
         borderWidth: 1,
         borderColor: '#cccccc',
-        width: '45%',
+        width: 150,
         padding: 5,
         margin: 5,
         backgroundColor: '#FFFFFF',
@@ -237,15 +235,15 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: 310,
         height: 52,
-        top: 370,
-        left:20
+        top: 450,
+        left:30
     },
     close:{
         position: "absolute",
         width: 40,
         height: 40,
-        bottom: 300,
-        left:260
+        bottom: 380,
+        left:300
     }
 });
 

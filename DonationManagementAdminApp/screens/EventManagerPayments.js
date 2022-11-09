@@ -1,15 +1,37 @@
 import React from "react";
-import { Image, TouchableOpacity, ImageBackground, StyleSheet, View } from "react-native";
+import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, ScrollView } from "react-native";
 
 const localimage = require("../assets/evmgrpaybg.png");
 
-const EventManagerPayments = () => {
+const EventManagerPayments = (props) => {
 
- 
+  const onPresspay = () => {
+    props.navigation.navigate('OrgPaymentDetails');    
+  };
 
   return(
     <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
-    
+     <ScrollView style={styles.completscroll}>
+
+    <TouchableOpacity onPress={onPresspay}>
+      <Image source={require("../assets/evpay1.png")} style={styles.pay}></Image>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPresspay}>
+      <Image source={require("../assets/evpay1.png")} style={styles.pay}></Image>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPresspay}>
+      <Image source={require("../assets/evpay1.png")} style={styles.pay}></Image>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPresspay}>
+      <Image source={require("../assets/evpay1.png")} style={styles.pay}></Image>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPresspay}>
+      <Image source={require("../assets/evpay1.png")} style={styles.pay}></Image>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPresspay}>
+      <Image source={require("../assets/evpay1.png")} style={styles.pay}></Image>
+    </TouchableOpacity>
+    </ScrollView>
    
     </ImageBackground>
   );
@@ -40,10 +62,17 @@ const styles = StyleSheet.create({
     height: 170,
     right: -172,
     bottom: -70
-
-
+  },
+  completscroll:{
+    bottom: -100,
+    maxHeight: 460
+  },
+  pay:{
+    width: 380,
+    height: 115,
+    left: -5,
+    margin:10
   }
- 
 });
 
 export default EventManagerPayments;

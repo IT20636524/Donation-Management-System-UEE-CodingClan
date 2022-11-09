@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import { Dashboard, Login, PaymentDashboard, Register, Splash,EventDashboard, CompleteEvent, Event, EventManagerPayments, OrgPayments} from "./screens/";
+import { Dashboard, Login, PaymentDashboard, Register, Splash,EventDashboard, CompleteEvent, Event, EventManagerPayments, OrgPayments, DonorDetails, OrgPaymentDetails, DonationDetailsList} from "./screens/";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +24,9 @@ const App = () => {
                 <Stack.Screen name="Event" component={Event} />
                 <Stack.Screen name="OrgPayments" component={OrgPayments} />
                 <Stack.Screen name="EventManagerPayments" component={EventManagerPayments} />
+                <Stack.Screen name="DonorDetails" component={DonorDetails} />
+                <Stack.Screen name="OrgPaymentDetails" component={OrgPaymentDetails} />
+                <Stack.Screen name="DonationDetailsList" component={DonationDetailsList} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -8,6 +8,9 @@ import CompleteEvent from "./CompleteEvent";
 import Event from "./Event";
 import OrgPayments from "./OrgPayments";
 import EventManagerPayments from "./EventManagerPayments";
+import DonorDetails from "./DonorDetails";
+import OrgPaymentDetails from "./OrgPaymentDetails";
+import DonationDetailsList from "./DonationDetailsList";
 
 export {
     Splash,
@@ -20,4 +23,7 @@ export {
     Event,
     OrgPayments,
     EventManagerPayments,
+    DonorDetails,
+    OrgPaymentDetails,
+    DonationDetailsList,
 };

@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, ScrollView } from "react-native";
 
-const localimage = require("../assets/orgbg.png");
+const localimage = require("../assets/donationdetails.png");
 
-const OrgPayments = (props) => {
+const DonationDetailsList = (props) => {
 
   const onPresspay = () => {
-    props.navigation.navigate('OrgPaymentDetails');    
+    props.navigation.navigate('DonorDetails');    
   };
 
   return(
@@ -14,22 +14,22 @@ const OrgPayments = (props) => {
      <ScrollView style={styles.completscroll}>
 
     <TouchableOpacity onPress={onPresspay}>
-      <Image source={require("../assets/pay1.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/d1.png")} style={styles.pay}></Image>
     </TouchableOpacity>
     <TouchableOpacity onPress={onPresspay}>
-      <Image source={require("../assets/pay2.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/d2.png")} style={styles.pay}></Image>
     </TouchableOpacity>
     <TouchableOpacity onPress={onPresspay}>
-      <Image source={require("../assets/pay3.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/d3.png")} style={styles.pay}></Image>
     </TouchableOpacity>
     <TouchableOpacity onPress={onPresspay}>
-      <Image source={require("../assets/pay4.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/d4.png")} style={styles.pay}></Image>
     </TouchableOpacity>
     <TouchableOpacity onPress={onPresspay}>
-      <Image source={require("../assets/pay1.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/d5.png")} style={styles.pay}></Image>
     </TouchableOpacity>
     <TouchableOpacity onPress={onPresspay}>
-      <Image source={require("../assets/pay2.png")} style={styles.pay}></Image>
+      <Image source={require("../assets/d1.png")} style={styles.pay}></Image>
     </TouchableOpacity>
     </ScrollView>
    
@@ -68,11 +68,11 @@ const styles = StyleSheet.create({
     maxHeight: 460
   },
   pay:{
-    width: 380,
-    height: 142,
+    width: 390,
+    height: 118,
     left: -5,
     margin:10
   }
 });
 
-export default OrgPayments;
+export default DonationDetailsList;

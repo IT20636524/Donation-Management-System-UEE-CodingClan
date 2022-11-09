@@ -12,6 +12,9 @@ const Dashboard = (props) => {
   const onPressevent = () => {
     props.navigation.navigate('EventDashboard');    
   };
+  const onPressdonor = () => {
+    props.navigation.navigate('DonationDetailsList');    
+  };
 
   return(
     <ImageBackground source={localimage} resizeMode='cover' style={styles.container}>
@@ -20,6 +23,9 @@ const Dashboard = (props) => {
     </TouchableOpacity>
     <TouchableOpacity onPress={onPressevent}>
       <Image source={require("../assets/eventbtn.png")} style={styles.event}></Image>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={onPressdonor}>
+      <Image source={require("../assets/donorbtn.png")} style={styles.donor}></Image>
     </TouchableOpacity>
     </ImageBackground>
   );
@@ -51,6 +57,15 @@ const styles = StyleSheet.create({
     right: -172,
     bottom: -70
 
+
+  },
+  donor:{
+    position: "absolute",
+    width: 160,
+    height: 155,
+    left: -175,
+    bottom: -230,
+    borderRadius:10
 
   }
  
