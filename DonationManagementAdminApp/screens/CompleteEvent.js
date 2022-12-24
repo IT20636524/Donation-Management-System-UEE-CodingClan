@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, Text, ScrollView } from "react-native";
+import { Image, TouchableOpacity, ImageBackground, StyleSheet, View, Text, ScrollView, Modal, TextInput, Pressable, Platform } from "react-native";
 
 const localimage = require("../assets/eventdash.png");
 
 const CompleteEvent = (props) => {
+
+  const [modalVisible, setModalVisible] = useState(false);
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [text, setText] = useState('Empty');
 
   const onPresseventmore = () => {
     props.navigation.navigate('Event');    
@@ -38,6 +44,90 @@ const [event,setevent] = useState ([
         )
     })}
     </ScrollView>
+
+    <View style={styles.centeredView}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                      
+                        setModalVisible(!modalVisible);
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <Text style={{color:"#000000", fontSize: 30, textAlign:"center",bottom:20}}>Add Event</Text>
+                            <View>
+                                <View style={styles.inputContainer}>
+                                    <Text style={styles.labelText}>Event name</Text>
+                                    <TextInput style={styles.textInput} placeholder='Enter Event name' />
+                                </View>
+                                <View style={styles.inputContainer}>
+                                    <Text style={{top:5,fontSize: 18}}>Date</Text>
+                                    
+                                    {/* <TouchableOpacity onPress={() => showMode('date')}> */}
+                                    <Image source={require("../assets/datepickpng.png")}></Image>
+                                  
+                                  {/* </TouchableOpacity> */}
+                                   
+
+                                    {show && (
+                                        <DateTimeInput 
+                                            testID = 'dateTimePicker'
+                                            value = {date}
+                                            mode={mode}
+                                            is24Hour={true}
+                                            display='default'
+                                            onChange={onChange}
+                                        
+                                       />
+                                    )}                                
+                                </View>
+                                <View style={styles.inputContainer}>
+                                    <Text style={styles.labelText}>Venue</Text>
+                                    <TextInput style={styles.textInput} placeholder='Enter Venue' />
+                                </View>
+                                <View style={styles.inputContainer}>
+                                    <Text style={styles.labelText}>Funds</Text>
+                                    <TextInput style={styles.textInput} placeholder='Enter Funds' />
+                                </View>
+                                
+                                <View style={styles.inputContainer}>
+                                    <Text style={styles.labelText}>Description</Text>
+                                    <TextInput style={styles.textInput} placeholder='Enter Description' />
+                                   
+                                   
+                                </View>
+                                <View style={styles.inputContainer}>
+                                    <Text style={styles.labelText}>Images</Text>
+                                    
+                                    <TouchableOpacity >
+                                    <Image  source={require("../assets/imguploadbtn.png")}></Image>
+                                  
+                                  </TouchableOpacity>
+                                   
+                                </View>
+                                
+                                
+                            </View>
+
+                            <Image source={require("../assets/submitbtn.png")} style={styles.submitbtn}></Image>
+
+                            <Pressable
+                                onPress={() => setModalVisible(!modalVisible)}
+                            >
+                                <Image source={require("../assets/close.png")} style={styles.close}></Image>
+                            </Pressable>
+                        </View>
+                    </View>
+                </Modal>
+                <Pressable
+                    onPress={() => setModalVisible(true)}
+                >
+                    <Image source={require("../assets/addeventbtn.png")} style={styles.add}></Image>
+                </Pressable>
+            </View>
     </ImageBackground>
   );
 };
@@ -65,7 +155,7 @@ const styles = StyleSheet.create({
   },
 
   completscroll:{
-    bottom: -80,
+    bottom: -200,
     maxHeight: 500
   },
   completeeventidscroll:{
@@ -78,7 +168,116 @@ const styles = StyleSheet.create({
   eventmorebtn: {
     marginLeft: 260,
     bottom: 70,
-  }
+  },
+  org: {
+    position: "absolute",
+    width: 183,
+    height: 138,
+    left: -185,
+    bottom: -370
+},
+mgr: {
+    position: "absolute",
+    width: 183,
+    height: 138,
+    right: -185,
+    bottom: -370
+},
+dash: {
+    width: 365,
+    height: 123,
+    left: 0,
+    background: "#FCFDFF",
+    borderRadius: 15,
+    bottom: -380
+},
+add: {
+    left: 100,
+    background: "#FCFDFF",
+    top: 50
+},
+centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+},
+modalView: {
+    margin: 20,
+    backgroundColor: "#3A74CB",
+    borderRadius: 20,
+    padding: 35,
+    height:440,
+    shadowColor: "3000000",
+    shadowOffset: {
+        width: 0,
+        height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+},
+button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+},
+
+textStyle: {
+    fontFamily: "Inter",
+    fontWeight: 700,
+    fontSize: 20,
+    lineHeight: 24,
+},
+modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontFamily: "Inter",
+    fontWeight: 700,
+    fontSize: 20,
+    lineHeight: 24,
+},
+inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+},
+
+textInput: {
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    width: '65%',
+    padding: 5,
+    margin: 5,
+    backgroundColor: '#FFFFFF',
+    fontSize: 15,
+    borderRadius: 8,
+},
+
+headerText: {
+    Color: 'black',
+    fontSize: 25,
+    textShadowColor:"black",
+    textAlign:"left"
+},
+labelText: {
+    fontSize: 18,
+    top:15
+},
+
+submitbtn: {
+    position: "absolute",
+    width: 250,
+    height: 52,
+    top: 370,
+    left:50
+},
+close:{
+    position: "absolute",
+    width: 40,
+    height: 40,
+    bottom: 330,
+    left: 260
+}
   
   
   

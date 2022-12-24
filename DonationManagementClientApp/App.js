@@ -14,6 +14,9 @@ import ViewProject from './screens/ViewProject';
 import AddProject from './screens/AddProject';
 import EditProject from './screens/EditProject';
 import MainContainer from './navigation/MainContainer';
+import EventDashboard from './screens/EventDashboard';
+import CompleteEvent from './screens/CompleteEvent';
+import Event from './screens/Event';
 
 // const Stack = createStackNavigator();
 
@@ -38,6 +41,9 @@ export default function App() {
                 <Stack.Screen name="ViewProject" component={ViewProject} />
                 <Stack.Screen name="AddProject" component={AddProject} />
                 <Stack.Screen name="EditProject" component={EditProject} />
+                <Stack.Screen name="EventDashboard" component={EventDashboard} />
+                <Stack.Screen name="CompleteEvent" component={CompleteEvent} />
+                <Stack.Screen name="Event" component={Event} />
             </Stack.Navigator>
         </NavigationContainer>
     // <NavigationContainer>
