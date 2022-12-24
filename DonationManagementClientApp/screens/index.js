@@ -16,7 +16,7 @@ export {
     Login,
     AddCard,
     Profile,
-    MyDonations
+    MyDonations,
     AddDonation,
     AddCard,
     EventDashboard,
